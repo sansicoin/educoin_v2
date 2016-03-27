@@ -1,9 +1,9 @@
-Building Asiadigicoin
+Building Educoin
 
-See doc/readme-qt.rst for instructions on building Asiadigicoin-Qt,
+See doc/readme-qt.rst for instructions on building Educoin-Qt,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of Asiadigicoin.
+implementation of Educoin.
 
-See doc/build-*.txt for instructions on building asiadigicoind,
+See doc/build-*.txt for instructions on building educoind,
 the intended-for-services, no-graphical-interface, reference
-implementation of Asiadigicoin.
+implementation of Educoin.
