@@ -1,7 +1,7 @@
 Educoin integration/staging tree
 ================================
 
-http://www.educoin.org
+http://www.edu-coin.org
 
 Copyright (c) 2009-2014 Bitcoin Developers
 Copyright (c) 2011-2014 Educoin Developers
@@ -19,7 +19,7 @@ The rest is the same as Bitcoin.
  - 2016 blocks to retarget difficulty
 
 For more information, as well as an immediately useable, binary version of
-the Educoin client sofware, see http://www.educoin.org.
+the Educoin client sofware, see http://www.edu-coin.org.
 
 License
 -------
@@ -45,7 +45,7 @@ match the project's coding conventions (see `doc/coding.txt`) or are
 controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/vietmarek/educoin/tags) are created
+completely stable. [Tags](https://github.com/vietmarek/educoin_v2/tags) are created
 regularly to indicate new official, stable release versions of Educoin.
 
 Testing
