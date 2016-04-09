@@ -3,7 +3,7 @@
 <plist version="0.9">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>educoin.icns</string>
+	<string>educoinv.icns</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleGetInfoString</key>
@@ -15,19 +15,19 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
-	<string>Educoin-Qt</string>
+	<string>EducoinV-Qt</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.educoin.Educoin-Qt</string>
+	<string>org.educoinv.EducoinV-Qt</string>
         <key>CFBundleURLTypes</key>
         <array>
           <dict>
             <key>CFBundleTypeRole</key>
             <string>Editor</string>
             <key>CFBundleURLName</key>
-            <string>org.educoin.EducoinPayment</string>
+            <string>org.educoinv.EducoinVPayment</string>
             <key>CFBundleURLSchemes</key>
             <array>
-              <string>educoin</string>
+              <string>educoinv</string>
             </array>
           </dict>
         </array>

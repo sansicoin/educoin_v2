@@ -49,9 +49,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Educoins");
-    case mBTC: return QString("Milli-Educoins (1 / 1,000)");
-    case uBTC: return QString("Micro-Educoins (1 / 1,000,000)");
+    case BTC: return QString("EducoinVs");
+    case mBTC: return QString("Milli-EducoinVs (1 / 1,000)");
+    case uBTC: return QString("Micro-EducoinVs (1 / 1,000,000)");
     default: return QString("???");
     }
 }

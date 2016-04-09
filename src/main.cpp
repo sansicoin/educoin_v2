@@ -19,7 +19,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "Educoin cannot be compiled without assertions."
+# error "EducoinV cannot be compiled without assertions."
 #endif
 
 //
@@ -36,7 +36,7 @@ unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
 uint256 hashGenesisBlock("0x00");
-static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Educoin: starting difficulty is 1 / 2^12
+static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // EducoinV: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 nBestChainWork = 0;
@@ -68,7 +68,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Educoin Signed Message:\n";
+const string strMessageMagic = "EducoinV Signed Message:\n";
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -362,7 +362,7 @@ unsigned int LimitOrphanTxSize(unsigned int nMaxOrphans)
 
 bool CTxOut::IsDust() const
 {
-    // Educoin: IsDust() detection disabled, allows any valid dust to be relayed.
+    // EducoinV: IsDust() detection disabled, allows any valid dust to be relayed.
     // The fees imposed on each dust txo is considered sufficient spam deterrant. 
     return false;
 }
@@ -623,7 +623,7 @@ int64 CTransaction::GetMinFee(unsigned int nBlockSize, bool fAllowFree,
             nMinFee = 0;
     }
 
-    // Educoin
+    // EducoinV
     // To limit dust spam, add nBaseFee for each output less than DUST_SOFT_LIMIT
     BOOST_FOREACH(const CTxOut& txout, vout)
         if (txout.nValue < DUST_SOFT_LIMIT)
@@ -1170,7 +1170,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         return pindexLast->nBits;
     }
 
-    // Educoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // EducoinV: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
     int blockstogoback = nInterval-1;
     if ((pindexLast->nHeight+1) != nInterval)
@@ -2117,7 +2117,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
         return state.DoS(100, error("CheckBlock() : size limits failed"));
 
-    // Educoin: Special short-term limits to avoid 10,000 BDB lock limit:
+    // EducoinV: Special short-term limits to avoid 10,000 BDB lock limit:
     if (GetBlockTime() < 1376568000)  // stop enforcing 15 August 2013 00:00:00
     {
         // Rule is: #unique txids referenced <= 4,500
@@ -2761,7 +2761,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0x6e;
         pchMessageStart[2] = 0x25;
         pchMessageStart[3] = 0x22;
-        hashGenesisBlock = uint256("0x1b9a7c726582e08c56f05657b3489c7ca95aca0fb759368a04c7560efc4b5a1a");
+        hashGenesisBlock = uint256("0x7305623dce9926f777ffda2d2b6cd2c04be9f8a61adeede289a6d33c771eb43b");
     }
 
     //
@@ -2794,7 +2794,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "Educoin Day";
+        const char* pszTimestamp = "EducoinV Day";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2813,7 +2813,7 @@ bool InitBlockIndex() {
         if (fTestNet)
         {
             block.nTime    = 1460183373;
-            block.nNonce   = 388111575;
+            block.nNonce   = 388441325;
         }
 
         //// debug print
@@ -2822,7 +2822,7 @@ bool InitBlockIndex() {
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
         
-        assert(block.hashMerkleRoot == uint256("0x1b10f7b61bfdc9a3285c0ceb35dea508975dd1eda49d83092ef7cb01e6cc42b3"));
+        assert(block.hashMerkleRoot == uint256("0x5212d6557cf302e884711f5a4ac00e2ef880eba6ec044c33aa44020e455c98b2"));
         if (true && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
@@ -3123,7 +3123,7 @@ bool static AlreadyHave(const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xbe, 0x18, 0xe9, 0x1d }; // Educoin: increase each by adding 2 to bitcoin's value.
+unsigned char pchMessageStart[4] = { 0xbe, 0x18, 0xe9, 0x1d }; // EducoinV: increase each by adding 2 to bitcoin's value.
 
 
 void static ProcessGetData(CNode* pfrom)
@@ -4173,7 +4173,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// EducoinMiner
+// EducoinVMiner
 //
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)
@@ -4586,7 +4586,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return false;
 
     //// debug print
-    printf("EducoinMiner:\n");
+    printf("EducoinVMiner:\n");
     printf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
     printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
@@ -4595,7 +4595,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != hashBestChain)
-            return error("EducoinMiner : generated block is stale");
+            return error("EducoinVMiner : generated block is stale");
 
         // Remove key from key pool
         reservekey.KeepKey();
@@ -4609,17 +4609,17 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         // Process this block the same as if we had received it from another node
         CValidationState state;
         if (!ProcessBlock(state, NULL, pblock))
-            return error("EducoinMiner : ProcessBlock, block not accepted");
+            return error("EducoinVMiner : ProcessBlock, block not accepted");
     }
 
     return true;
 }
 
-void static EducoinMiner(CWallet *pwallet)
+void static EducoinVMiner(CWallet *pwallet)
 {
-    printf("EducoinMiner started\n");
+    printf("EducoinVMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("educoin-miner");
+    RenameThread("educoinv-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -4641,7 +4641,7 @@ void static EducoinMiner(CWallet *pwallet)
         CBlock *pblock = &pblocktemplate->block;
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        printf("Running EducoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        printf("Running EducoinVMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -4740,7 +4740,7 @@ void static EducoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        printf("EducoinMiner terminated\n");
+        printf("EducoinVMiner terminated\n");
         throw;
     }
 }
@@ -4765,7 +4765,7 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
 
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
-        minerThreads->create_thread(boost::bind(&EducoinMiner, pwallet));
+        minerThreads->create_thread(boost::bind(&EducoinVMiner, pwallet));
 }
 
 // Amount compression:
