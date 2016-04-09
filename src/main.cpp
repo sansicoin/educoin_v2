@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x3078caa4acc7c51497dfd99302cc93afefc5753d08eb397df960708d67743322");
+uint256 hashGenesisBlock("0x00");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Educoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1100,8 +1100,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 10 * 60;
-static const int64 nTargetSpacing = 5 * 60;
+static const int64 nTargetTimespan = 3.5 * 24 * 60 * 60;
+static const int64 nTargetSpacing = 2.5 * 60;
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -2784,7 +2784,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "valentines Day";
+        const char* pszTimestamp = "Educoin Day";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2796,13 +2796,13 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1459105436;
+        block.nTime    = 1460183373;
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 6183163;
 
         if (fTestNet)
         {
-            block.nTime    = 1459099529;
+            block.nTime    = 1460183373;
             block.nNonce   = 385565240;
         }
 
