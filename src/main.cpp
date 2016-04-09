@@ -1091,9 +1091,19 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
             if(nHeight == 1)
             {
-            nSubsidy = 9333333 * COIN;
+            nSubsidy = 9999999 * COIN;
             }
 
+            if(nHeight == 2)
+            {
+            nSubsidy = 9999999 * COIN;
+            }
+            
+            if(nHeight == 3)
+            {
+            nSubsidy = 9999999 * COIN;
+            }
+                        
     // Subsidy is cut in half every 840000 blocks
     nSubsidy >>= (nHeight / 840000);
 
@@ -2751,7 +2761,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0x6e;
         pchMessageStart[2] = 0x25;
         pchMessageStart[3] = 0x22;
-        hashGenesisBlock = uint256("0xc9f9c5ab9d05806662d809e20de1b7010280841c95b2daa74fab042b7d4129d6");
+        hashGenesisBlock = uint256("0x1b9a7c726582e08c56f05657b3489c7ca95aca0fb759368a04c7560efc4b5a1a");
     }
 
     //
@@ -2803,7 +2813,7 @@ bool InitBlockIndex() {
         if (fTestNet)
         {
             block.nTime    = 1460183373;
-            block.nNonce   = 385565240;
+            block.nNonce   = 388111575;
         }
 
         //// debug print
@@ -2812,8 +2822,8 @@ bool InitBlockIndex() {
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
         
-        assert(block.hashMerkleRoot == uint256("0x28ce7209088b4aba771f99b9f023725dde9bcbe4e90724b9feb778c285782fcc"));
-        if (false && block.GetHash() != hashGenesisBlock)
+        assert(block.hashMerkleRoot == uint256("0x1b10f7b61bfdc9a3285c0ceb35dea508975dd1eda49d83092ef7cb01e6cc42b3"));
+        if (true && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
