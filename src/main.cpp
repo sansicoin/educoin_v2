@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x00");
+uint256 hashGenesisBlock("0x357b65265f964f5edab15777fd8dbce4e732511b4d06b8fdc470d9735bf6b106");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // EducoinV: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2808,7 +2808,7 @@ bool InitBlockIndex() {
         block.nVersion = 1;
         block.nTime    = 1460183373;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 6183163;
+        block.nNonce   = 7459953;
 
         if (fTestNet)
         {
