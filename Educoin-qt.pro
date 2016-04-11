@@ -1,13 +1,14 @@
 TEMPLATE = app
 TARGET = educoinv-qt
-macx:TARGET = "EducoinV-Qt"
+macx:TARGET = "Educoinv-Qt"
 VERSION = 0.8.7.5
-INCLUDEPATH += src src/json src/qt
+INCLUDEPATH += src src/json src/qt /usr/local/Cellar/boost155/1.55.0_1
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
+CONFIG += static
 
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
@@ -18,6 +19,19 @@ CONFIG += thread
 # Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
 #    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
+DEPSDIR=/usr/local/Cellar
+
+BOOST_INCLUDE_PATH=/usr/local/Cellar/boost155/1.55.0_1/include
+BOOST_LIB_PATH=/usr/local/Cellar/boost155/1.55.0_1/lib
+BDB_INCLUDE_PATH=/usr/local/Cellar/berkeley-db4/4.8.30/include
+BDB_LIB_PATH=/usr/local/Cellar/berkeley-db4/4.8.30/lib
+OPENSSL_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2g/include
+OPENSSL_LIB_PATH=/usr/local/Cellar/openssl/1.0.2g/lib
+QRENCODE_INCLUDE_PATH=/usr/local/Cellar/qrencode/3.4.4/include
+QRENCODE_LIB_PATH=/usr/local/Cellar/qrencode/3.4.4/lib
+MINIUPNPC_INCLUDE_PATH=/usr/local/Cellar/miniupnpc/1.9.20151008/include
+MINIUPNPC_LIB_PATH=/usr/local/Cellar/miniupnpc/1.9.20151008/lib
+
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -25,11 +39,10 @@ UI_DIR = build
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
-    # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-
+     #Mac: compile for maximum compatibility (10.9, 32-bit)
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
     !win32:!macx {
         # Linux: static link and extra security (see: https://wiki.debian.org/Hardening)
         LIBS += -Wl,-Bstatic
@@ -319,7 +332,7 @@ SOURCES += src/qt/test/test_main.cpp \
 HEADERS += src/qt/test/uritests.h
 DEPENDPATH += src/qt/test
 QT += testlib
-TARGET = educoinv-qt_test
+TARGET = educoin-qt_test
 DEFINES += BITCOIN_QT_TEST
   macx: CONFIG -= app_bundle
 }
