@@ -2804,7 +2804,7 @@ bool InitBlockIndex() {
         block.nVersion = 1;
         block.nTime    = 1460529696;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 7459953;
+        block.nNonce   = 8546686;
 
         if (fTestNet)
         {
