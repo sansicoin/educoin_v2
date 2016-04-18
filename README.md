@@ -1,10 +1,10 @@
 EducoinV integration/staging tree
 ================================
 
-http://www.edu-coin.org
+
 
 Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2011-2014 EducoinV Developers
+Copyright (c) 2011-2016 EducoinV Developers
 
 What is EducoinV?
 ----------------
@@ -12,14 +12,25 @@ What is EducoinV?
 EducoinV is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
  - 2.5 minute block targets
  - subsidy halves in 840k blocks (~4 years)
- - ~84 million total coins
+ - ~99 million total coins
 
 The rest is the same as Bitcoin.
  - 50 coins per block
- - 2016 blocks to retarget difficulty
+ - 576 blocks to retarget difficulty - 1 day
 
 For more information, as well as an immediately useable, binary version of
-the EducoinV client sofware, see http://www.edu-coin.org.
+the EducoinV client sofware.
+
+Blockexplorer: http://blockexplorer.viet-systems.com
+Miningpool   : http://miningpool.viet-systems.com
+Node         : node.viet-system.com
+
+Wallets:
+Windows : http://windows_wallet.com
+Mac     : http://mac_wallet.com
+Linux   : http://linux_wallet.com
+
+
 
 License
 -------
