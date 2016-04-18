@@ -25,10 +25,7 @@ Blockexplorer: http://blockexplorer.viet-systems.com
 Miningpool   : http://miningpool.viet-systems.com
 Node         : node.viet-system.com
 
-Wallets:
-Windows : http://windows_wallet.com
-Mac     : http://mac_wallet.com
-Linux   : http://linux_wallet.com
+
 
 
 
