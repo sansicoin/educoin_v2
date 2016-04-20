@@ -9,6 +9,25 @@ Copyright (c) 2011-2016 EducoinV Developers
 What is EducoinV?
 ----------------
 
+EducoinV --> Educoin Vietnam (EDC)
+Developed and designed for students in Vietnam to support them and to grow up the quality of the education in this country.
+On this way we want to support especially those, who live in rural areas and often do not have the chances to get the proper education.
+Students can "earn" coins with their work, solving tasks homeworks etc.
+The earned coins can be redeemed for school stuff, books, free lessons or even free courses.
+We are teachers from all over the world, UK, USA, Germany, France, Australia, Canada, Vietnam living for long time in Vietnam and working with young people, teaching different subjects.
+This should be seen as our volunteer job.
+20% premined ( around 20M coins) are kept by our group of teachers to give away to the students and for marketting. We are still looking for a developer of the android wallet.
+
+
+P.S.
+We are not programmer and we try to keep coin costs low.
+Any suggestions and help are welcome.
+
+
+
+
+
+
 EducoinV is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
  - 2.5 minute block targets
  - subsidy halves in 840k blocks (~4 years)
@@ -19,7 +38,7 @@ The rest is the same as Bitcoin.
  - 576 blocks to retarget difficulty - 1 day
 
 For more information, as well as an immediately useable, binary version of
-the EducoinV client sofware.
+the EducoinV client software.
 
 Blockexplorer: http://blockexplorer.viet-systems.com
 Miningpool   : http://miningpool.viet-systems.com
