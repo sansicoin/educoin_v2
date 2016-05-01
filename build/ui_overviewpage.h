@@ -45,6 +45,7 @@ public:
     QLabel *labelUnconfirmed;
     QLabel *labelImmatureText;
     QLabel *labelImmature;
+    QLabel *label_2;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_3;
     QFrame *frame_2;
@@ -54,13 +55,18 @@ public:
     QLabel *labelTransactionsStatus;
     QSpacerItem *horizontalSpacer;
     QListView *listTransactions;
+    QFrame *frame_3;
+    QVBoxLayout *verticalLayout_5;
+    QLabel *label_6;
+    QLabel *label_7;
+    QLabel *label_8;
     QSpacerItem *verticalSpacer_2;
 
     void setupUi(QWidget *OverviewPage)
     {
         if (OverviewPage->objectName().isEmpty())
             OverviewPage->setObjectName(QString::fromUtf8("OverviewPage"));
-        OverviewPage->resize(573, 342);
+        OverviewPage->resize(801, 439);
         topLayout = new QVBoxLayout(OverviewPage);
         topLayout->setObjectName(QString::fromUtf8("topLayout"));
         labelAlerts = new QLabel(OverviewPage);
@@ -160,6 +166,14 @@ public:
 
         verticalLayout_2->addWidget(frame);
 
+        label_2 = new QLabel(OverviewPage);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMaximumSize(QSize(256, 256));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/icons/bitcoin")));
+        label_2->setScaledContents(true);
+
+        verticalLayout_2->addWidget(label_2, 0, Qt::AlignHCenter);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer);
@@ -210,6 +224,35 @@ public:
 
         verticalLayout_3->addWidget(frame_2);
 
+        frame_3 = new QFrame(OverviewPage);
+        frame_3->setObjectName(QString::fromUtf8("frame_3"));
+        frame_3->setEnabled(true);
+        frame_3->setMinimumSize(QSize(0, 0));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        verticalLayout_5 = new QVBoxLayout(frame_3);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        label_6 = new QLabel(frame_3);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setOpenExternalLinks(true);
+
+        verticalLayout_5->addWidget(label_6);
+
+        label_7 = new QLabel(frame_3);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setOpenExternalLinks(true);
+
+        verticalLayout_5->addWidget(label_7);
+
+        label_8 = new QLabel(frame_3);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setOpenExternalLinks(true);
+
+        verticalLayout_5->addWidget(label_8);
+
+
+        verticalLayout_3->addWidget(frame_3);
+
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_3->addItem(verticalSpacer_2);
@@ -247,10 +290,14 @@ public:
 #ifndef QT_NO_TOOLTIP
         labelImmature->setToolTip(QApplication::translate("OverviewPage", "Mined balance that has not yet matured", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
+        label_2->setText(QString());
         label_4->setText(QApplication::translate("OverviewPage", "<b>Recent transactions</b>", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the EducoinV network after a connection is established, but this process has not completed yet.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
+        label_6->setText(QApplication::translate("OverviewPage", "<html><head/><body><p><a href=\"http://educoinfaucet.viet-systems.com/\"><span style=\" font-weight:600; text-decoration: none; color:#5a5f13;\">Faucet</span></a></p></body></html>", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("OverviewPage", "<html><head/><body><p><a href=\"http://miningpool.viet-systems.com/\"><span style=\" font-weight:600; text-decoration: none; color:#5a5f13;\">Miningpool</span></a></p></body></html>", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("OverviewPage", "<html><head/><body><p><a href=\"http://blockexplorer.viet-systems.com/\"><span style=\" font-weight:600;text-decoration: none; color:#5a5f13;\">Blockexplorer</span></a></p></body></html>", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
